@@ -2,7 +2,7 @@ const { Pool } = require("pg");
 const { nanoid } = require("nanoid");
 const InvariantError = require("../../exceptions/InvariantError");
 const NotFoundError = require("../../exceptions/NotFoundError");
-const AuthenticationsError = require("../../exceptions/AuthenticationsError");
+const AuthorizationError = require("../../exceptions/AuthorizationError");
 
 class PlaylistService {
   constructor(collaborationService) {
@@ -129,7 +129,7 @@ class PlaylistService {
 
     const playlist = result.rows[0];
     if (playlist.owner !== owner) {
-      throw new AuthenticationsError("Anda tidak berhak mengakses resource ini");
+      throw new AuthorizationError("Anda tidak berhak mengakses resource ini");
     }
   }
 

@@ -72,12 +72,6 @@ const init = async () => {
     {
       plugin: Inert,
     },
-    {
-      plugin: likes,
-      options: {
-        service: likesService,
-      },
-    },
   ]);
 
   // mendefinisikan strategy autentikasi jwt
@@ -99,17 +93,17 @@ const init = async () => {
 
   await server.register([
     {
-      plugin: albums,
-      options: {
-        service: albumsService,
-        validator: AlbumsValidator,
-      },
-    },
-    {
       plugin: songs,
       options: {
         service: songsService,
         validator: SongsValidator,
+      },
+    },
+    {
+      plugin: albums,
+      options: {
+        service: albumsService,
+        validator: AlbumsValidator,
       },
     },
     {
@@ -156,6 +150,12 @@ const init = async () => {
       options: {
         service: storageService,
         validator: UploadsValidator,
+      },
+    },
+    {
+      plugin: likes,
+      options: {
+        service: likesService,
       },
     },
   ]);

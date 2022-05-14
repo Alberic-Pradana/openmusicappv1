@@ -22,6 +22,10 @@ exports.up = (pgm) => {
       type: "TIMESTAMP",
       notNull: true,
     },
+    cover_url: {
+      type: "TEXT",
+      default: null,
+    },
   });
 };
 
